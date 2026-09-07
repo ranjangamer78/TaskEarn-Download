@@ -155,6 +155,17 @@ export const DownloadModal: React.FC<DownloadModalProps> = ({ isOpen, onClose })
               <span>Download {APP_CONFIG.apkFileName} ({APP_CONFIG.fileSize})</span>
             </a>
 
+            <div className="text-center">
+              <a
+                href={APP_CONFIG.mediafireFallbackUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[11px] text-slate-400 hover:text-sky-300 underline"
+              >
+                Having trouble? Try alternative mirror link (MediaFire)
+              </a>
+            </div>
+
             {/* Welcome bonus highlight */}
             <div className="p-3 rounded-xl bg-amber-500/10 border border-amber-500/30 text-xs text-amber-200 flex items-center gap-2">
               <Sparkles className="w-4 h-4 text-amber-400 shrink-0" />
