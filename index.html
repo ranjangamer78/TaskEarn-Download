@@ -15,8 +15,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-  <!-- Favicon -->
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><defs><linearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'><stop offset='0%25' stop-color='%2338bdf8'/><stop offset='50%25' stop-color='%236366f1'/><stop offset='100%25' stop-color='%23ec4899'/></linearGradient></defs><rect width='100' height='100' rx='24' fill='url(%23g)'/><path d='M28 36h44M50 36v34M35 52h20' stroke='white' stroke-width='9' stroke-linecap='round'/><circle cx='70' cy='32' r='7' fill='%23facc15'/></svg>" />
+  <!-- Favicon (Inline SVG Data URI) -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><defs><linearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'><stop offset='0%25' stop-color='%230284c7'/><stop offset='50%25' stop-color='%234f46e5'/><stop offset='100%25' stop-color='%239333ea'/></linearGradient></defs><rect width='100' height='100' rx='22' fill='url(%23g)'/><circle cx='50' cy='50' r='26' fill='%23facc15' stroke='%23fef08a' stroke-width='2'/><text x='50' y='60' font-family='sans-serif' font-weight='900' font-size='30' fill='%2378350f' text-anchor='middle'>₹</text></svg>" />
 
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -33,8 +33,116 @@
     }
   </script>
 
-  <!-- Custom CSS -->
-  <link rel="stylesheet" href="./style.css">
+  <!-- Embedded All CSS Styles -->
+  <style>
+    /* TaskEarn Custom Styles & Animations */
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-8px); }
+    }
+
+    @keyframes pulse-subtle {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.85; transform: scale(1.02); }
+    }
+
+    @keyframes ticker {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    @keyframes shimmer {
+      0% { transform: translateX(-100%) skewX(-15deg); }
+      100% { transform: translateX(200%) skewX(-15deg); }
+    }
+
+    .animate-float {
+      animation: float 4s ease-in-out infinite;
+    }
+
+    .animate-pulse-subtle {
+      animation: pulse-subtle 3s ease-in-out infinite;
+    }
+
+    .ticker-track {
+      display: flex;
+      width: max-content;
+      animation: ticker 35s linear infinite;
+    }
+
+    .ticker-track:hover {
+      animation-play-state: paused;
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #090d16;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #1e293b;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #334155;
+    }
+
+    /* Glassmorphism & Effects */
+    .glass-card {
+      background: rgba(15, 23, 42, 0.75);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .glass-pill {
+      background: rgba(30, 41, 59, 0.6);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    /* Glow effects */
+    .glow-indigo {
+      box-shadow: 0 0 50px -10px rgba(99, 102, 241, 0.25);
+    }
+
+    .glow-emerald {
+      box-shadow: 0 0 50px -10px rgba(16, 185, 129, 0.25);
+    }
+
+    /* Phone screen transition */
+    .phone-screen-content {
+      transition: opacity 0.25s ease-in-out, transform 0.25s ease-in-out;
+    }
+
+    /* Modal and Toast transitions */
+    .modal-overlay {
+      transition: opacity 0.2s ease-out;
+    }
+
+    .modal-content {
+      transition: transform 0.2s ease-out, opacity 0.2s ease-out;
+    }
+
+    .toast-slide {
+      animation: toastSlideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    @keyframes toastSlideUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px) scale(0.96);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+  </style>
 </head>
 <body class="bg-slate-950 text-slate-100 font-sans antialiased selection:bg-indigo-500 selection:text-white min-h-screen flex flex-col relative overflow-x-hidden">
 
@@ -49,13 +157,30 @@
   <header class="sticky top-0 z-40 backdrop-blur-xl bg-slate-950/80 border-b border-slate-800/80 transition-all duration-200">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-18 sm:h-20 flex items-center justify-between">
       
-      <!-- Brand Logo -->
+      <!-- Brand Logo with Self-Contained 3D Vector Icon -->
       <a href="#" class="flex items-center gap-3 group select-none">
-        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-sky-400 via-indigo-500 to-fuchsia-500 p-0.5 shadow-lg shadow-indigo-500/25 group-hover:scale-105 transition-transform duration-200 flex items-center justify-center">
-          <div class="w-full h-full bg-slate-950 rounded-[10px] flex items-center justify-center relative overflow-hidden">
-            <span class="font-display font-black text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-indigo-400 text-xl">T</span>
-            <div class="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-amber-400 animate-pulse"></div>
-          </div>
+        <div class="relative w-10 h-10 rounded-xl overflow-hidden shadow-lg shadow-indigo-500/25 group-hover:scale-105 transition-transform duration-200">
+          <svg class="w-full h-full" viewBox="0 0 100 100" fill="none">
+            <rect width="100" height="100" rx="22" fill="url(#brand-grad)" />
+            <circle cx="50" cy="50" r="28" fill="#78350f" />
+            <circle cx="50" cy="48" r="28" fill="url(#coin-gold)" stroke="#fef08a" stroke-width="2" />
+            <circle cx="50" cy="48" r="22" fill="none" stroke="#ca8a04" stroke-width="2" stroke-dasharray="3 2" />
+            <text x="50" y="58" font-family="'Outfit', sans-serif" font-weight="900" font-size="28" fill="#ffffff" text-anchor="middle">₹</text>
+            <circle cx="22" cy="24" r="3" fill="#fef08a" />
+            <circle cx="78" cy="74" r="2" fill="#38bdf8" />
+            <defs>
+              <linearGradient id="brand-grad" x1="0" y1="0" x2="100" y2="100">
+                <stop offset="0%" stop-color="#0284c7" />
+                <stop offset="50%" stop-color="#4f46e5" />
+                <stop offset="100%" stop-color="#9333ea" />
+              </linearGradient>
+              <linearGradient id="coin-gold" x1="25" y1="20" x2="75" y2="80">
+                <stop offset="0%" stop-color="#fef08a" />
+                <stop offset="40%" stop-color="#facc15" />
+                <stop offset="100%" stop-color="#b45309" />
+              </linearGradient>
+            </defs>
+          </svg>
         </div>
         <div class="flex flex-col leading-none">
           <span class="font-display font-extrabold text-xl tracking-tight text-white flex items-center gap-1">
@@ -199,7 +324,7 @@
 
         </div>
 
-        <!-- Right: Interactive Quick Preview Card -->
+        <!-- Right: App Photo Card & Live Payout Status -->
         <div class="lg:col-span-5 flex justify-center">
           <div class="relative w-full max-w-sm">
             <!-- Glow background -->
@@ -207,12 +332,45 @@
 
             <div class="relative rounded-3xl bg-slate-900/90 border border-slate-700/70 p-6 shadow-2xl backdrop-blur-xl space-y-5">
               
-              <div class="flex items-center justify-between pb-3 border-b border-slate-800">
+              <!-- App Vector Graphic Banner -->
+              <div class="flex items-center gap-4 pb-4 border-b border-slate-800">
+                <div class="w-16 h-16 rounded-2xl overflow-hidden shadow-lg border border-indigo-500/40 shrink-0">
+                  <svg class="w-full h-full" viewBox="0 0 100 100" fill="none">
+                    <rect width="100" height="100" rx="22" fill="url(#card-grad)" />
+                    <circle cx="50" cy="50" r="28" fill="#78350f" />
+                    <circle cx="50" cy="48" r="28" fill="url(#coin-gold-2)" stroke="#fef08a" stroke-width="2" />
+                    <text x="50" y="58" font-family="'Outfit', sans-serif" font-weight="900" font-size="28" fill="#ffffff" text-anchor="middle">₹</text>
+                    <defs>
+                      <linearGradient id="card-grad" x1="0" y1="0" x2="100" y2="100">
+                        <stop offset="0%" stop-color="#0284c7" />
+                        <stop offset="50%" stop-color="#4f46e5" />
+                        <stop offset="100%" stop-color="#9333ea" />
+                      </linearGradient>
+                      <linearGradient id="coin-gold-2" x1="25" y1="20" x2="75" y2="80">
+                        <stop offset="0%" stop-color="#fef08a" />
+                        <stop offset="40%" stop-color="#facc15" />
+                        <stop offset="100%" stop-color="#b45309" />
+                      </linearGradient>
+                    </defs>
+                  </svg>
+                </div>
+                <div>
+                  <h3 class="font-display font-extrabold text-lg text-white">TaskEarn App</h3>
+                  <p class="text-xs text-emerald-400 font-semibold flex items-center gap-1 mt-0.5">
+                    <i data-lucide="shield-check" class="w-3.5 h-3.5"></i>
+                    <span>Official Android Release</span>
+                  </p>
+                  <p class="text-[11px] text-slate-400">Version 1.0 • 33.9 MB</p>
+                </div>
+              </div>
+
+              <!-- Live Payout Status -->
+              <div class="flex items-center justify-between">
                 <div class="flex items-center gap-2">
                   <div class="w-3 h-3 rounded-full bg-emerald-400 animate-ping"></div>
                   <span class="text-xs font-bold text-slate-200">Live Payout Status</span>
                 </div>
-                <span class="text-[11px] text-slate-400">Updated just now</span>
+                <span class="text-[11px] text-slate-400">Updated real-time</span>
               </div>
 
               <!-- Payout simulation row -->
@@ -229,7 +387,7 @@
 
               <div class="p-3.5 rounded-2xl bg-slate-950/80 border border-slate-800 flex items-center justify-between">
                 <div class="flex items-center gap-3">
-                  <div class="w-9 h-9 rounded-xl bg-indigo-500/20 text-indigo-400 flex items-center justify-center font-bold text-sm">₹</div>
+                  <div class="w-9 h-9 rounded-xl bg-indigo-500/20 text-indigo-400 flex items-center justify-center font-bold text-sm">🪙</div>
                   <div>
                     <div class="text-xs font-bold text-white">Priya M. (Mumbai)</div>
                     <div class="text-[10px] text-slate-400">Daily Spin Reward</div>
@@ -263,8 +421,6 @@
     <!-- Live Payout Scrolling Ticker -->
     <section class="py-3 bg-slate-900/60 border-y border-slate-800/80 overflow-hidden select-none">
       <div class="ticker-track flex items-center gap-8 text-xs font-medium text-slate-300">
-        
-        <!-- Ticker items repeat -->
         <span class="inline-flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-emerald-400"></span> <strong>Rahul K.</strong> received <strong>₹150</strong> via PhonePe</span>
         <span class="inline-flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-emerald-400"></span> <strong>Amit S.</strong> received <strong>₹500</strong> via Paytm</span>
         <span class="inline-flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-emerald-400"></span> <strong>Neha P.</strong> received <strong>₹250</strong> via Google Pay</span>
@@ -319,7 +475,19 @@
             <div>
               <div class="flex items-center justify-between mb-4">
                 <div class="flex items-center gap-2">
-                  <div class="w-7 h-7 rounded-lg bg-gradient-to-tr from-sky-400 to-indigo-600 flex items-center justify-center text-xs font-black">T</div>
+                  <div class="w-7 h-7 rounded-lg overflow-hidden shrink-0">
+                    <svg class="w-full h-full" viewBox="0 0 100 100" fill="none">
+                      <rect width="100" height="100" rx="22" fill="url(#mini-icon-grad)" />
+                      <circle cx="50" cy="50" r="26" fill="#facc15" stroke="#fef08a" stroke-width="2" />
+                      <text x="50" y="58" font-family="'Outfit', sans-serif" font-weight="900" font-size="28" fill="#78350f" text-anchor="middle">₹</text>
+                      <defs>
+                        <linearGradient id="mini-icon-grad" x1="0" y1="0" x2="100" y2="100">
+                          <stop offset="0%" stop-color="#0284c7" />
+                          <stop offset="100%" stop-color="#4f46e5" />
+                        </linearGradient>
+                      </defs>
+                    </svg>
+                  </div>
                   <span class="text-xs font-bold font-display">TaskEarn</span>
                 </div>
                 <div class="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-amber-400/10 border border-amber-400/30 text-amber-300 text-xs font-black">
@@ -339,7 +507,7 @@
 
               <!-- Dynamic Screen Body -->
               <div id="phone-screen-body" class="phone-screen-content">
-                <!-- Injected via script.js -->
+                <!-- Dynamic feature content -->
               </div>
             </div>
 
@@ -545,7 +713,19 @@
       
       <!-- Brand & Copyright -->
       <div class="flex items-center gap-3">
-        <div class="w-8 h-8 rounded-lg bg-gradient-to-tr from-sky-400 to-indigo-600 flex items-center justify-center font-bold text-white text-sm">T</div>
+        <div class="w-8 h-8 rounded-lg overflow-hidden shrink-0">
+          <svg class="w-full h-full" viewBox="0 0 100 100" fill="none">
+            <rect width="100" height="100" rx="22" fill="url(#footer-grad)" />
+            <circle cx="50" cy="50" r="26" fill="#facc15" stroke="#fef08a" stroke-width="2" />
+            <text x="50" y="58" font-family="'Outfit', sans-serif" font-weight="900" font-size="28" fill="#78350f" text-anchor="middle">₹</text>
+            <defs>
+              <linearGradient id="footer-grad" x1="0" y1="0" x2="100" y2="100">
+                <stop offset="0%" stop-color="#0284c7" />
+                <stop offset="100%" stop-color="#4f46e5" />
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
         <div>
           <span class="font-bold text-white text-sm font-display">TaskEarn v1.0</span>
           <p class="text-[11px] text-slate-500">© 2026 TaskEarn App. All rights reserved.</p>
@@ -584,7 +764,19 @@
       </button>
 
       <div class="flex items-center gap-3 pr-8">
-        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-sky-400 to-indigo-600 flex items-center justify-center font-bold text-white">T</div>
+        <div class="w-10 h-10 rounded-xl overflow-hidden shadow shrink-0">
+          <svg class="w-full h-full" viewBox="0 0 100 100" fill="none">
+            <rect width="100" height="100" rx="22" fill="url(#modal-icon-grad)" />
+            <circle cx="50" cy="50" r="26" fill="#facc15" stroke="#fef08a" stroke-width="2" />
+            <text x="50" y="58" font-family="'Outfit', sans-serif" font-weight="900" font-size="28" fill="#78350f" text-anchor="middle">₹</text>
+            <defs>
+              <linearGradient id="modal-icon-grad" x1="0" y1="0" x2="100" y2="100">
+                <stop offset="0%" stop-color="#0284c7" />
+                <stop offset="100%" stop-color="#4f46e5" />
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
         <div>
           <h3 class="font-bold text-lg font-display">Download TaskEarn APK</h3>
           <p class="text-xs text-emerald-400 font-semibold">Direct APK • Fast & Verified</p>
@@ -705,9 +897,588 @@
     </div>
   </div>
 
-  <!-- Scripts -->
+  <!-- External Libraries -->
   <script src="https://unpkg.com/lucide@latest"></script>
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
-  <script type="module" src="./script.js"></script>
+
+  <!-- Embedded All JavaScript Logic -->
+  <script>
+    const APP_CONFIG = {
+      name: 'TaskEarn',
+      version: '1.0',
+      apkFileName: 'TaskEarn_1.0.apk',
+      fileSize: '33.9 MB',
+      androidRequirement: 'Android 7.0 (Nougat) or higher',
+      referralCode: 'CB8SIF',
+      welcomeBonus: '200 Coins',
+      directDownloadUrl: './TaskEarn_1.0.apk',
+      mediafireFallbackUrl: 'https://www.mediafire.com/file/qtyd2zkox2dejyz/TaskEarn_1.0.apk/file',
+    };
+
+    let currentSliderTab = 0;
+    let userCoins = 850;
+    let toastTimeout = null;
+
+    document.addEventListener('DOMContentLoaded', () => {
+      if (window.lucide) {
+        window.lucide.createIcons();
+      }
+
+      setupDownloadButtons();
+      setupPhoneSlider();
+      setupFaqAccordion();
+      setupModals();
+      setupCopyButtons();
+      setupMobileMenu();
+      setupInteractivePhoneActions();
+    });
+
+    function refreshIcons() {
+      if (window.lucide) {
+        window.lucide.createIcons();
+      }
+    }
+
+    function setupDownloadButtons() {
+      const downloadTriggers = document.querySelectorAll('.trigger-download');
+      downloadTriggers.forEach((btn) => {
+        btn.addEventListener('click', (e) => {
+          triggerDirectDownload(e);
+        });
+      });
+
+      const openModalTriggers = document.querySelectorAll('.trigger-download-modal');
+      openModalTriggers.forEach((btn) => {
+        btn.addEventListener('click', (e) => {
+          e.preventDefault();
+          openDownloadModal();
+        });
+      });
+    }
+
+    function triggerDirectDownload(e) {
+      try {
+        if (window.confetti) {
+          window.confetti({
+            particleCount: 50,
+            spread: 70,
+            origin: { y: 0.6 },
+          });
+        }
+      } catch (err) {}
+
+      showDownloadToast();
+
+      const isDirectAnchor = e && e.currentTarget && e.currentTarget.tagName === 'A' && e.currentTarget.getAttribute('download');
+      if (!isDirectAnchor) {
+        const link = document.createElement('a');
+        link.href = APP_CONFIG.directDownloadUrl;
+        link.download = APP_CONFIG.apkFileName;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+      }
+    }
+
+    function showDownloadToast() {
+      const toast = document.getElementById('download-toast');
+      if (!toast) return;
+
+      toast.classList.remove('hidden');
+      toast.classList.add('flex');
+
+      if (toastTimeout) clearTimeout(toastTimeout);
+      toastTimeout = setTimeout(() => {
+        closeDownloadToast();
+      }, 8000);
+    }
+
+    function closeDownloadToast() {
+      const toast = document.getElementById('download-toast');
+      if (!toast) return;
+      toast.classList.add('hidden');
+      toast.classList.remove('flex');
+    }
+
+    const sliderScreens = [
+      {
+        title: 'Daily Check-in',
+        subtitle: 'Earn free bonus coins every single day',
+        badge: 'Day 5 Streak',
+        render: () => `
+          <div class="space-y-3">
+            <div class="p-3.5 rounded-2xl bg-gradient-to-br from-indigo-900/60 to-purple-900/40 border border-indigo-500/30">
+              <div class="flex items-center justify-between mb-2">
+                <span class="text-xs font-bold text-indigo-300">Daily Streak: 5 Days</span>
+                <span class="px-2 py-0.5 rounded-full bg-amber-400/20 text-amber-300 text-[10px] font-bold">+50 Bonus</span>
+              </div>
+              <div class="grid grid-cols-7 gap-1 text-center my-2.5">
+                ${[1, 2, 3, 4, 5, 6, 7]
+                  .map(
+                    (day) => `
+                  <div class="p-1.5 rounded-xl ${
+                    day < 5
+                      ? 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/30'
+                      : day === 5
+                      ? 'bg-indigo-600 text-white shadow-lg ring-2 ring-indigo-400'
+                      : 'bg-slate-800/80 text-slate-400'
+                  }">
+                    <div class="text-[9px] font-medium">D${day}</div>
+                    <div class="text-[11px] font-bold mt-0.5">${day * 10}</div>
+                  </div>
+                `
+                  )
+                  .join('')}
+              </div>
+              <button id="claim-streak-btn" class="w-full mt-2 py-2.5 rounded-xl font-bold text-xs bg-gradient-to-r from-amber-400 to-orange-500 text-slate-950 hover:brightness-110 active:scale-95 transition shadow">
+                Claim Today's 50 Coins
+              </button>
+            </div>
+            <div class="p-3 rounded-xl bg-slate-900/80 border border-slate-800 text-xs flex items-center justify-between">
+              <span class="text-slate-300">Tomorrow's Reward</span>
+              <span class="font-bold text-amber-400">+60 Coins</span>
+            </div>
+          </div>
+        `,
+      },
+      {
+        title: 'Lucky Spin Wheel',
+        subtitle: 'Spin daily to win up to 500 Coins',
+        badge: '3 Spins Left',
+        render: () => `
+          <div class="flex flex-col items-center justify-center space-y-3">
+            <div class="relative w-36 h-36 flex items-center justify-center">
+              <div id="spin-wheel-disc" class="w-36 h-36 rounded-full border-4 border-amber-400/80 bg-gradient-to-tr from-indigo-900 via-purple-800 to-pink-900 shadow-xl flex items-center justify-center transition-transform duration-[3000ms] ease-out">
+                <div class="grid grid-cols-2 grid-rows-2 w-full h-full text-center text-[10px] font-extrabold text-amber-200">
+                  <div class="flex items-center justify-center border-r border-b border-white/20">50</div>
+                  <div class="flex items-center justify-center border-b border-white/20">200</div>
+                  <div class="flex items-center justify-center border-r border-white/20">100</div>
+                  <div class="flex items-center justify-center">500</div>
+                </div>
+                <div class="absolute w-8 h-8 rounded-full bg-slate-950 border-2 border-amber-400 flex items-center justify-center text-amber-400 font-black text-xs">★</div>
+              </div>
+              <div class="absolute -top-1 w-3 h-4 bg-amber-400 [clip-path:polygon(50%_100%,0_0,100%_0)] z-10"></div>
+            </div>
+            <button id="spin-wheel-btn" class="w-full py-2.5 rounded-xl font-bold text-xs bg-gradient-to-r from-sky-400 via-indigo-500 to-fuchsia-500 text-white hover:brightness-110 active:scale-95 transition shadow-lg">
+              Spin Wheel Now!
+            </button>
+          </div>
+        `,
+      },
+      {
+        title: 'Scratch & Win',
+        subtitle: 'Golden cards with instant payouts',
+        badge: '5 Cards Ready',
+        render: () => `
+          <div class="space-y-3">
+            <div id="scratch-card-box" class="p-4 rounded-2xl bg-gradient-to-br from-amber-500/20 to-orange-500/10 border-2 border-dashed border-amber-400/40 text-center cursor-pointer hover:border-amber-400 transition group">
+              <div id="scratch-hidden-content" class="hidden">
+                <div class="text-3xl">🎉</div>
+                <div class="text-sm font-black text-amber-300 mt-1">You Won +120 Coins!</div>
+                <div class="text-[10px] text-slate-400 mt-0.5">Credited to your TaskEarn wallet</div>
+              </div>
+              <div id="scratch-placeholder">
+                <div class="text-2xl mb-1 group-hover:scale-110 transition-transform">✨</div>
+                <div class="text-xs font-bold text-amber-200">Tap to Scratch Gold Card</div>
+                <div class="text-[10px] text-slate-400 mt-0.5">Win between 20 to 500 Coins</div>
+              </div>
+            </div>
+            <button id="scratch-btn" class="w-full py-2 rounded-xl font-semibold text-xs bg-slate-800 hover:bg-slate-700 text-slate-200 transition">
+              Scratch Card
+            </button>
+          </div>
+        `,
+      },
+      {
+        title: 'Refer & Earn',
+        subtitle: 'Earn ₹50 per friend + 10% commission',
+        badge: 'Code: CB8SIF',
+        render: () => `
+          <div class="space-y-2.5">
+            <div class="p-3 rounded-2xl bg-indigo-950/80 border border-indigo-500/40 text-center">
+              <div class="text-[10px] text-indigo-300 font-semibold uppercase tracking-wider">Your Referral Code</div>
+              <div class="flex items-center justify-center gap-2 mt-1">
+                <span class="text-lg font-mono font-black text-amber-300 tracking-wider">CB8SIF</span>
+                <button class="copy-code-btn px-2.5 py-1 rounded-lg bg-indigo-600 hover:bg-indigo-500 text-[10px] font-bold text-white transition">
+                  Copy
+                </button>
+              </div>
+            </div>
+            <div class="grid grid-cols-2 gap-2 text-center text-xs">
+              <div class="p-2 rounded-xl bg-slate-900 border border-slate-800">
+                <div class="text-slate-400 text-[10px]">Friends Joined</div>
+                <div class="text-sm font-bold text-white mt-0.5">28</div>
+              </div>
+              <div class="p-2 rounded-xl bg-slate-900 border border-slate-800">
+                <div class="text-slate-400 text-[10px]">Total Earned</div>
+                <div class="text-sm font-bold text-emerald-400 mt-0.5">₹1,400</div>
+              </div>
+            </div>
+          </div>
+        `,
+      },
+      {
+        title: 'Easy Tasks',
+        subtitle: 'Surveys, apps & videos updated hourly',
+        badge: '18 Tasks Live',
+        render: () => `
+          <div class="space-y-2 text-xs">
+            <div class="p-2.5 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-between">
+              <div>
+                <div class="font-bold text-slate-200">Play Quick Game (1 Min)</div>
+                <div class="text-[10px] text-slate-400">Easy • Instant Credit</div>
+              </div>
+              <span class="px-2 py-1 rounded-lg bg-emerald-500/20 text-emerald-400 font-bold text-[11px]">+80 Coins</span>
+            </div>
+            <div class="p-2.5 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-between">
+              <div>
+                <div class="font-bold text-slate-200">Complete 2-Min Survey</div>
+                <div class="text-[10px] text-slate-400">High Reward</div>
+              </div>
+              <span class="px-2 py-1 rounded-lg bg-amber-500/20 text-amber-400 font-bold text-[11px]">+250 Coins</span>
+            </div>
+            <div class="p-2.5 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-between">
+              <div>
+                <div class="font-bold text-slate-200">Watch Video Ad</div>
+                <div class="text-[10px] text-slate-400">Unlimited Daily</div>
+              </div>
+              <span class="px-2 py-1 rounded-lg bg-sky-500/20 text-sky-400 font-bold text-[11px]">+30 Coins</span>
+            </div>
+          </div>
+        `,
+      },
+    ];
+
+    function setupPhoneSlider() {
+      const tabButtons = document.querySelectorAll('.slider-tab-btn');
+      tabButtons.forEach((btn, index) => {
+        btn.addEventListener('click', () => {
+          selectSliderTab(index);
+        });
+      });
+
+      renderSliderScreen(0);
+    }
+
+    function selectSliderTab(index) {
+      currentSliderTab = index;
+      const tabButtons = document.querySelectorAll('.slider-tab-btn');
+      tabButtons.forEach((btn, idx) => {
+        if (idx === index) {
+          btn.className =
+            'slider-tab-btn px-3 py-2 rounded-xl text-xs font-bold bg-gradient-to-r from-sky-500 to-indigo-600 text-white shadow-md transition-all scale-105';
+        } else {
+          btn.className =
+            'slider-tab-btn px-3 py-2 rounded-xl text-xs font-medium text-slate-400 hover:text-white hover:bg-slate-800/60 transition-all';
+        }
+      });
+
+      renderSliderScreen(index);
+    }
+
+    function renderSliderScreen(index) {
+      const screen = sliderScreens[index];
+      const container = document.getElementById('phone-screen-body');
+      const titleEl = document.getElementById('slider-feature-title');
+      const subtitleEl = document.getElementById('slider-feature-subtitle');
+      const badgeEl = document.getElementById('slider-feature-badge');
+
+      if (titleEl) titleEl.textContent = screen.title;
+      if (subtitleEl) subtitleEl.textContent = screen.subtitle;
+      if (badgeEl) badgeEl.textContent = screen.badge;
+
+      if (container) {
+        container.innerHTML = screen.render();
+        setupInteractivePhoneActions();
+        refreshIcons();
+      }
+    }
+
+    function setupInteractivePhoneActions() {
+      const balanceEl = document.getElementById('mockup-user-coins');
+      if (balanceEl) balanceEl.textContent = userCoins.toLocaleString();
+
+      const streakBtn = document.getElementById('claim-streak-btn');
+      if (streakBtn) {
+        streakBtn.addEventListener('click', () => {
+          userCoins += 50;
+          if (balanceEl) balanceEl.textContent = userCoins.toLocaleString();
+          streakBtn.textContent = 'Claimed (+50 Coins)!';
+          streakBtn.classList.remove('from-amber-400', 'to-orange-500');
+          streakBtn.classList.add('bg-emerald-600', 'text-white');
+          streakBtn.disabled = true;
+          try {
+            if (window.confetti) {
+              window.confetti({ particleCount: 30, spread: 50, origin: { y: 0.5 } });
+            }
+          } catch (e) {}
+        });
+      }
+
+      const spinBtn = document.getElementById('spin-wheel-btn');
+      const wheelDisc = document.getElementById('spin-wheel-disc');
+      if (spinBtn && wheelDisc) {
+        spinBtn.addEventListener('click', () => {
+          spinBtn.disabled = true;
+          spinBtn.textContent = 'Spinning...';
+          const randomDeg = 1440 + Math.floor(Math.random() * 360);
+          wheelDisc.style.transform = `rotate(${randomDeg}deg)`;
+
+          setTimeout(() => {
+            userCoins += 200;
+            if (balanceEl) balanceEl.textContent = userCoins.toLocaleString();
+            spinBtn.textContent = 'You Won 200 Coins! 🎉';
+            spinBtn.classList.add('bg-emerald-600');
+            try {
+              if (window.confetti) {
+                window.confetti({ particleCount: 45, spread: 60, origin: { y: 0.5 } });
+              }
+            } catch (e) {}
+          }, 3100);
+        });
+      }
+
+      const scratchBox = document.getElementById('scratch-card-box');
+      const scratchBtn = document.getElementById('scratch-btn');
+      const hiddenContent = document.getElementById('scratch-hidden-content');
+      const placeholder = document.getElementById('scratch-placeholder');
+
+      const doScratch = () => {
+        if (hiddenContent && placeholder) {
+          placeholder.classList.add('hidden');
+          hiddenContent.classList.remove('hidden');
+          userCoins += 120;
+          if (balanceEl) balanceEl.textContent = userCoins.toLocaleString();
+          if (scratchBtn) {
+            scratchBtn.textContent = 'Card Scratched!';
+            scratchBtn.disabled = true;
+          }
+          try {
+            if (window.confetti) {
+              window.confetti({ particleCount: 35, spread: 60, origin: { y: 0.5 } });
+            }
+          } catch (e) {}
+        }
+      };
+
+      if (scratchBox) scratchBox.addEventListener('click', doScratch);
+      if (scratchBtn) scratchBtn.addEventListener('click', doScratch);
+
+      const copyButtons = document.querySelectorAll('.copy-code-btn');
+      copyButtons.forEach((btn) => {
+        btn.addEventListener('click', () => {
+          copyReferralCode(btn);
+        });
+      });
+    }
+
+    function copyReferralCode(btn) {
+      navigator.clipboard.writeText(APP_CONFIG.referralCode).then(() => {
+        const originalText = btn.textContent;
+        btn.textContent = 'Copied! ✓';
+        btn.classList.add('bg-emerald-600');
+        setTimeout(() => {
+          btn.textContent = originalText;
+          btn.classList.remove('bg-emerald-600');
+        }, 2000);
+      });
+    }
+
+    function setupCopyButtons() {
+      const btns = document.querySelectorAll('.trigger-copy-code');
+      btns.forEach((btn) => {
+        btn.addEventListener('click', () => {
+          copyReferralCode(btn);
+        });
+      });
+    }
+
+    function setupFaqAccordion() {
+      const faqItems = document.querySelectorAll('.faq-item');
+      faqItems.forEach((item) => {
+        const trigger = item.querySelector('.faq-trigger');
+        const content = item.querySelector('.faq-content');
+        const chevron = item.querySelector('.faq-chevron');
+
+        if (trigger && content) {
+          trigger.addEventListener('click', () => {
+            const isHidden = content.classList.contains('hidden');
+
+            faqItems.forEach((other) => {
+              const c = other.querySelector('.faq-content');
+              const ch = other.querySelector('.faq-chevron');
+              if (c) c.classList.add('hidden');
+              if (ch) ch.style.transform = 'rotate(0deg)';
+            });
+
+            if (isHidden) {
+              content.classList.remove('hidden');
+              if (chevron) chevron.style.transform = 'rotate(180deg)';
+            }
+          });
+        }
+      });
+    }
+
+    function setupModals() {
+      const closeDlModal = document.getElementById('close-download-modal');
+      if (closeDlModal) {
+        closeDlModal.addEventListener('click', closeDownloadModal);
+      }
+
+      const modalTabs = document.querySelectorAll('.modal-tab-btn');
+      modalTabs.forEach((tab) => {
+        tab.addEventListener('click', () => {
+          const targetTab = tab.getAttribute('data-tab');
+          switchModalTab(targetTab);
+        });
+      });
+
+      const legalTriggers = document.querySelectorAll('[data-legal-target]');
+      legalTriggers.forEach((trigger) => {
+        trigger.addEventListener('click', (e) => {
+          e.preventDefault();
+          const type = trigger.getAttribute('data-legal-target');
+          openLegalModal(type);
+        });
+      });
+
+      const closeLegalModalBtn = document.getElementById('close-legal-modal');
+      if (closeLegalModalBtn) {
+        closeLegalModalBtn.addEventListener('click', closeLegalModal);
+      }
+
+      window.addEventListener('click', (e) => {
+        const dlModal = document.getElementById('download-modal');
+        if (e.target === dlModal) closeDownloadModal();
+
+        const legalModal = document.getElementById('legal-modal');
+        if (e.target === legalModal) closeLegalModal();
+      });
+    }
+
+    function openDownloadModal() {
+      const modal = document.getElementById('download-modal');
+      if (modal) {
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+        switchModalTab('apk');
+      }
+    }
+
+    function closeDownloadModal() {
+      const modal = document.getElementById('download-modal');
+      if (modal) {
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+      }
+    }
+
+    function switchModalTab(tabId) {
+      const tabs = document.querySelectorAll('.modal-tab-btn');
+      tabs.forEach((tab) => {
+        if (tab.getAttribute('data-tab') === tabId) {
+          tab.className =
+            'modal-tab-btn py-2 px-1 rounded-lg transition bg-indigo-600 text-white shadow font-bold text-xs';
+        } else {
+          tab.className =
+            'modal-tab-btn py-2 px-1 rounded-lg transition text-slate-400 hover:text-white font-bold text-xs';
+        }
+      });
+
+      const contents = document.querySelectorAll('.modal-tab-content');
+      contents.forEach((content) => {
+        if (content.id === `modal-tab-${tabId}`) {
+          content.classList.remove('hidden');
+        } else {
+          content.classList.add('hidden');
+        }
+      });
+    }
+
+    const legalData = {
+      privacy: {
+        title: 'Privacy Policy',
+        content: `
+          <p class="mb-3"><strong>Effective Date:</strong> January 2026</p>
+          <p class="mb-3">TaskEarn ("we", "us", or "our") respects your privacy. We only collect the minimal information necessary to deliver rewards and manage your account.</p>
+          <h4 class="font-bold text-white mt-4 mb-2">1. Information We Collect</h4>
+          <p class="mb-3">We collect basic account identifiers (email/username), referral source code, and transaction logs for payment disbursement (such as UPI ID or wallet mobile number). We never sell your personal data.</p>
+          <h4 class="font-bold text-white mt-4 mb-2">2. How Rewards Are Processed</h4>
+          <p class="mb-3">Payouts are sent to your verified payment method. Financial data is securely encrypted in transit.</p>
+          <h4 class="font-bold text-white mt-4 mb-2">3. Contact Us</h4>
+          <p>Questions regarding privacy can be directed to support@taskearn.app.</p>
+        `,
+      },
+      terms: {
+        title: 'Terms of Service',
+        content: `
+          <p class="mb-3"><strong>Effective Date:</strong> January 2026</p>
+          <p class="mb-3">By downloading, installing, or using TaskEarn, you agree to these Terms of Service.</p>
+          <h4 class="font-bold text-white mt-4 mb-2">1. Eligibility</h4>
+          <p class="mb-3">You must be at least 18 years old or have legal guardian consent to participate in reward programs.</p>
+          <h4 class="font-bold text-white mt-4 mb-2">2. Prohibited Conduct</h4>
+          <p class="mb-3">Strictly prohibited activities include: using emulators, VPNs to manipulate tasks, multi-accounting, automated scripts, or fraudulent referrals. Accounts found engaging in fraud will be permanently suspended with forfeit of pending coins.</p>
+          <h4 class="font-bold text-white mt-4 mb-2">3. Coin Redemption</h4>
+          <p>Coins hold no cash value outside the TaskEarn platform until successfully redeemed through official payout channels.</p>
+        `,
+      },
+      disclaimer: {
+        title: 'Disclaimer',
+        content: `
+          <p class="mb-3">TaskEarn is a rewards entertainment platform. All earnings depend strictly upon user participation, task completion accuracy, and offer availability from verified partners.</p>
+          <p class="mb-3">TaskEarn does not guarantee fixed income or employment. Google Pay, PhonePe, and Paytm are registered trademarks of their respective owners and are not affiliated with TaskEarn.</p>
+        `,
+      },
+    };
+
+    function openLegalModal(type) {
+      const data = legalData[type] || legalData.privacy;
+      const titleEl = document.getElementById('legal-modal-title');
+      const bodyEl = document.getElementById('legal-modal-body');
+      const modal = document.getElementById('legal-modal');
+
+      if (titleEl) titleEl.textContent = data.title;
+      if (bodyEl) bodyEl.innerHTML = data.content;
+      if (modal) {
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+      }
+    }
+
+    function closeLegalModal() {
+      const modal = document.getElementById('legal-modal');
+      if (modal) {
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+      }
+    }
+
+    function setupMobileMenu() {
+      const toggleBtn = document.getElementById('mobile-menu-toggle');
+      const menu = document.getElementById('mobile-menu');
+
+      if (toggleBtn && menu) {
+        toggleBtn.addEventListener('click', () => {
+          menu.classList.toggle('hidden');
+        });
+
+        const links = menu.querySelectorAll('a');
+        links.forEach((l) => {
+          l.addEventListener('click', () => {
+            menu.classList.add('hidden');
+          });
+        });
+      }
+    }
+
+    window.triggerDirectDownload = triggerDirectDownload;
+    window.openDownloadModal = openDownloadModal;
+    window.closeDownloadModal = closeDownloadModal;
+    window.closeDownloadToast = closeDownloadToast;
+    window.openLegalModal = openLegalModal;
+    window.closeLegalModal = closeLegalModal;
+    window.selectSliderTab = selectSliderTab;
+  </script>
 </body>
 </html>
