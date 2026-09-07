@@ -1,0 +1,6 @@
+{
+  "name": "TaskEarn",
+  "description": "Download TaskEarn - Complete tasks, play daily spin, scratch cards, and earn real rewards and cash payouts.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
