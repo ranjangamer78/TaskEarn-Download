@@ -281,39 +281,56 @@
           </div>
 
           <!-- CTA Buttons -->
-          <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
+          <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3 pt-2">
             <a
               id="hero-download-btn"
               href="./TaskEarn_1.0.apk"
               download="TaskEarn_1.0.apk"
-              class="trigger-download w-full sm:w-auto relative group inline-flex items-center justify-center gap-3 px-8 py-4 rounded-2xl font-bold text-base sm:text-lg text-white shadow-xl shadow-indigo-600/30 bg-gradient-to-r from-sky-500 via-indigo-600 to-fuchsia-600 hover:scale-[1.02] active:scale-[0.98] transition cursor-pointer"
+              class="trigger-download w-full sm:w-auto relative group inline-flex items-center justify-center gap-3 px-7 py-4 rounded-2xl font-bold text-base text-white shadow-xl shadow-indigo-600/30 bg-gradient-to-r from-sky-500 via-indigo-600 to-fuchsia-600 hover:scale-[1.02] active:scale-[0.98] transition cursor-pointer"
             >
               <i data-lucide="download" class="w-5 h-5 group-hover:translate-y-0.5 transition-transform"></i>
               <div class="flex flex-col items-start leading-tight">
-                <span class="text-[10px] uppercase tracking-wider text-indigo-100 font-semibold">Direct Instant Download</span>
-                <span>Download TaskEarn 1.0 APK</span>
+                <span class="text-[10px] uppercase tracking-wider text-indigo-100 font-semibold">Direct Download</span>
+                <span>Download APK (33.9 MB)</span>
               </div>
               <i data-lucide="arrow-right" class="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform"></i>
             </a>
 
-            <button
-              class="trigger-download-modal w-full sm:w-auto px-6 py-4 rounded-2xl font-bold text-sm text-slate-300 bg-slate-900/90 border border-slate-800 hover:border-slate-700 hover:text-white transition flex items-center justify-center gap-2"
+            <!-- Public GitHub Download Button -->
+            <a
+              id="hero-github-download-btn"
+              href="https://github.com/ranjankumarsingh9827/TaskEarn/raw/main/TaskEarn_1.0.apk"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="github-download-link w-full sm:w-auto px-6 py-4 rounded-2xl font-bold text-sm text-slate-200 bg-slate-900 border border-slate-700 hover:border-slate-500 hover:bg-slate-800 hover:text-white transition flex items-center justify-center gap-2.5 shadow-lg"
             >
-              <i data-lucide="smartphone" class="w-4 h-4 text-sky-400"></i>
-              <span>How to Install Guide</span>
+              <i data-lucide="github" class="w-5 h-5 text-white"></i>
+              <span>Download via GitHub</span>
+            </a>
+
+            <button
+              class="trigger-download-modal w-full sm:w-auto px-5 py-4 rounded-2xl font-bold text-sm text-slate-300 bg-slate-900/60 border border-slate-800 hover:border-slate-700 hover:text-white transition flex items-center justify-center gap-2"
+            >
+              <i data-lucide="layers" class="w-4 h-4 text-sky-400"></i>
+              <span>All Mirrors</span>
             </button>
           </div>
 
-          <!-- Direct Status & Cloud Mirror Backup Bar -->
+          <!-- Direct Status & GitHub/Cloud Mirror Backup Bar -->
           <div class="flex flex-wrap items-center justify-center lg:justify-start gap-3 pt-1 text-xs text-slate-400">
             <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-300 font-medium">
               <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-              TaskEarn_1.0.apk (33.9 MB) Available
+              File Ready (33.9 MB)
             </span>
+            <span class="text-slate-600">•</span>
+            <a href="https://github.com/ranjankumarsingh9827/TaskEarn/raw/main/TaskEarn_1.0.apk" target="_blank" rel="noopener noreferrer" class="github-download-link inline-flex items-center gap-1 text-sky-300 hover:text-sky-200 underline font-semibold">
+              <i data-lucide="github" class="w-3.5 h-3.5"></i>
+              Public GitHub File
+            </a>
             <span class="text-slate-600">•</span>
             <a href="https://www.mediafire.com/file/qtyd2zkox2dejyz/TaskEarn_1.0.apk/file" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 text-amber-300 hover:text-amber-200 underline font-semibold">
               <i data-lucide="cloud-download" class="w-3.5 h-3.5"></i>
-              Cloud Mirror (MediaFire)
+              MediaFire Mirror
             </a>
           </div>
 
@@ -820,19 +837,31 @@
           <div class="flex justify-between"><span class="text-slate-400">Status:</span><span class="text-emerald-400 font-bold">100% Available & Ready</span></div>
         </div>
 
-        <!-- Primary Direct Download -->
+        <!-- Option 1: Public GitHub Download (High Reliability) -->
+        <a
+          id="modal-github-download-btn"
+          href="https://github.com/ranjankumarsingh9827/TaskEarn/raw/main/TaskEarn_1.0.apk"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="github-download-link w-full py-3.5 rounded-2xl font-bold text-sm text-white bg-slate-800 hover:bg-slate-700 border border-slate-600 hover:border-slate-500 active:scale-95 transition flex items-center justify-center gap-2.5 shadow"
+        >
+          <i data-lucide="github" class="w-4 h-4"></i>
+          <span>Download from Public GitHub (Recommended)</span>
+        </a>
+
+        <!-- Option 2: Direct Server Download -->
         <a
           id="modal-direct-download-btn"
           href="./TaskEarn_1.0.apk"
           download="TaskEarn_1.0.apk"
           target="_blank"
-          class="w-full py-3.5 rounded-2xl font-bold text-sm text-white bg-gradient-to-r from-sky-500 to-indigo-600 hover:shadow-lg hover:brightness-110 active:scale-95 transition flex items-center justify-center gap-2 shadow"
+          class="w-full py-3 rounded-2xl font-bold text-xs text-white bg-gradient-to-r from-sky-500 to-indigo-600 hover:shadow-lg active:scale-95 transition flex items-center justify-center gap-2 shadow"
         >
           <i data-lucide="download" class="w-4 h-4"></i>
-          <span>Download Direct APK (33.9 MB)</span>
+          <span>Direct Host APK (33.9 MB)</span>
         </a>
 
-        <!-- Cloud Backup Mirror (MediaFire) -->
+        <!-- Option 3: Cloud Backup Mirror (MediaFire) -->
         <a
           href="https://www.mediafire.com/file/qtyd2zkox2dejyz/TaskEarn_1.0.apk/file"
           target="_blank"
@@ -840,10 +869,12 @@
           class="w-full py-3 rounded-2xl font-bold text-xs text-amber-300 bg-amber-500/10 border border-amber-500/30 hover:bg-amber-500/20 active:scale-95 transition flex items-center justify-center gap-2"
         >
           <i data-lucide="cloud-download" class="w-4 h-4 text-amber-400"></i>
-          <span>Cloud Mirror Download (MediaFire • Always Available)</span>
+          <span>Cloud Mirror (MediaFire • Always Online)</span>
         </a>
 
-        <p class="text-center text-[10px] text-slate-400">If your browser blocks the direct file, click the Cloud Mirror above.</p>
+        <div class="p-2.5 rounded-xl bg-slate-950/80 border border-slate-800 text-[11px] text-slate-400 leading-relaxed">
+          <span class="text-emerald-400 font-semibold">Tip:</span> If your browser shows <span class="text-rose-300 italic font-mono">"File wasn't available on site"</span>, click <strong class="text-white">"Download from Public GitHub"</strong> or <strong class="text-amber-300">"Cloud Mirror"</strong> above to download instantly.
+        </div>
       </div>
 
       <!-- Tab 2: Install Guide -->
