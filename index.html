@@ -209,6 +209,7 @@
           id="nav-download-button"
           href="./TaskEarn_1.0.apk"
           download="TaskEarn_1.0.apk"
+          target="_blank"
           class="trigger-download relative inline-flex items-center gap-2 px-4.5 py-2.5 rounded-xl font-bold text-xs sm:text-sm text-white shadow-md shadow-indigo-600/30 bg-gradient-to-r from-sky-500 via-indigo-600 to-fuchsia-600 hover:scale-[1.02] active:scale-[0.98] transition cursor-pointer"
         >
           <i data-lucide="download" class="w-4 h-4 text-white"></i>
@@ -231,6 +232,7 @@
       <a
         href="./TaskEarn_1.0.apk"
         download="TaskEarn_1.0.apk"
+        target="_blank"
         class="trigger-download w-full flex items-center justify-center gap-2 py-3 rounded-xl font-bold text-sm text-white bg-gradient-to-r from-sky-500 to-indigo-600 shadow"
       >
         <i data-lucide="download" class="w-4 h-4"></i>
@@ -300,6 +302,19 @@
               <i data-lucide="smartphone" class="w-4 h-4 text-sky-400"></i>
               <span>How to Install Guide</span>
             </button>
+          </div>
+
+          <!-- Direct Status & Cloud Mirror Backup Bar -->
+          <div class="flex flex-wrap items-center justify-center lg:justify-start gap-3 pt-1 text-xs text-slate-400">
+            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-300 font-medium">
+              <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+              TaskEarn_1.0.apk (33.9 MB) Available
+            </span>
+            <span class="text-slate-600">•</span>
+            <a href="https://www.mediafire.com/file/qtyd2zkox2dejyz/TaskEarn_1.0.apk/file" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 text-amber-300 hover:text-amber-200 underline font-semibold">
+              <i data-lucide="cloud-download" class="w-3.5 h-3.5"></i>
+              Cloud Mirror (MediaFire)
+            </a>
           </div>
 
           <!-- Proof Stat Chips -->
@@ -400,6 +415,7 @@
               <a
                 href="./TaskEarn_1.0.apk"
                 download="TaskEarn_1.0.apk"
+                target="_blank"
                 class="trigger-download w-full py-3.5 rounded-xl font-bold text-sm text-white bg-gradient-to-r from-sky-500 to-indigo-600 hover:shadow-lg transition flex items-center justify-center gap-2"
               >
                 <i data-lucide="download" class="w-4 h-4"></i>
@@ -527,6 +543,7 @@
           <a
             href="./TaskEarn_1.0.apk"
             download="TaskEarn_1.0.apk"
+            target="_blank"
             class="trigger-download inline-flex items-center gap-3 px-8 py-4 rounded-2xl font-bold text-base text-white bg-gradient-to-r from-sky-500 via-indigo-600 to-fuchsia-600 shadow-xl shadow-indigo-600/30 hover:scale-105 transition cursor-pointer"
           >
             <i data-lucide="download" class="w-5 h-5"></i>
@@ -743,6 +760,7 @@
       <a
         href="./TaskEarn_1.0.apk"
         download="TaskEarn_1.0.apk"
+        target="_blank"
         class="trigger-download px-4.5 py-2.5 rounded-xl font-bold text-white bg-indigo-600 hover:bg-indigo-500 transition flex items-center gap-2"
       >
         <i data-lucide="download" class="w-4 h-4"></i>
@@ -779,13 +797,16 @@
         </div>
         <div>
           <h3 class="font-bold text-lg font-display">Download TaskEarn APK</h3>
-          <p class="text-xs text-emerald-400 font-semibold">Direct APK • Fast & Verified</p>
+          <p class="text-xs text-emerald-400 font-semibold flex items-center gap-1">
+            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+            <span>File Available & Verified (33.9 MB)</span>
+          </p>
         </div>
       </div>
 
       <!-- Tabs -->
       <div class="grid grid-cols-3 gap-1 p-1 rounded-xl bg-slate-950 border border-slate-800 text-xs">
-        <button data-tab="apk" class="modal-tab-btn py-2 px-1 rounded-lg transition bg-indigo-600 text-white shadow font-bold text-xs">Direct APK</button>
+        <button data-tab="apk" class="modal-tab-btn py-2 px-1 rounded-lg transition bg-indigo-600 text-white shadow font-bold text-xs">Download APK</button>
         <button data-tab="install" class="modal-tab-btn py-2 px-1 rounded-lg transition text-slate-400 hover:text-white font-bold text-xs">Install Guide</button>
         <button data-tab="qr" class="modal-tab-btn py-2 px-1 rounded-lg transition text-slate-400 hover:text-white font-bold text-xs">Scan QR</button>
       </div>
@@ -796,23 +817,33 @@
           <div class="flex justify-between"><span class="text-slate-400">File Name:</span><span class="font-mono text-emerald-300 font-bold">TaskEarn_1.0.apk</span></div>
           <div class="flex justify-between"><span class="text-slate-400">File Size:</span><span class="font-bold text-white">33.9 MB</span></div>
           <div class="flex justify-between"><span class="text-slate-400">Android:</span><span class="text-sky-300">Android 7.0 or higher</span></div>
-          <div class="flex justify-between"><span class="text-slate-400">Safety:</span><span class="text-emerald-400 font-bold">100% Virus-Free</span></div>
+          <div class="flex justify-between"><span class="text-slate-400">Status:</span><span class="text-emerald-400 font-bold">100% Available & Ready</span></div>
         </div>
 
+        <!-- Primary Direct Download -->
         <a
+          id="modal-direct-download-btn"
           href="./TaskEarn_1.0.apk"
           download="TaskEarn_1.0.apk"
-          class="trigger-download w-full py-3.5 rounded-2xl font-bold text-sm text-white bg-gradient-to-r from-sky-500 to-indigo-600 hover:shadow-lg transition flex items-center justify-center gap-2"
+          target="_blank"
+          class="w-full py-3.5 rounded-2xl font-bold text-sm text-white bg-gradient-to-r from-sky-500 to-indigo-600 hover:shadow-lg hover:brightness-110 active:scale-95 transition flex items-center justify-center gap-2 shadow"
         >
           <i data-lucide="download" class="w-4 h-4"></i>
-          <span>Download TaskEarn_1.0.apk (33.9 MB)</span>
+          <span>Download Direct APK (33.9 MB)</span>
         </a>
 
-        <div class="text-center">
-          <a href="https://www.mediafire.com/file/qtyd2zkox2dejyz/TaskEarn_1.0.apk/file" target="_blank" rel="noopener noreferrer" class="text-[11px] text-slate-400 hover:text-sky-300 underline">
-            Alternative Mirror Link (MediaFire)
-          </a>
-        </div>
+        <!-- Cloud Backup Mirror (MediaFire) -->
+        <a
+          href="https://www.mediafire.com/file/qtyd2zkox2dejyz/TaskEarn_1.0.apk/file"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="w-full py-3 rounded-2xl font-bold text-xs text-amber-300 bg-amber-500/10 border border-amber-500/30 hover:bg-amber-500/20 active:scale-95 transition flex items-center justify-center gap-2"
+        >
+          <i data-lucide="cloud-download" class="w-4 h-4 text-amber-400"></i>
+          <span>Cloud Mirror Download (MediaFire • Always Available)</span>
+        </a>
+
+        <p class="text-center text-[10px] text-slate-400">If your browser blocks the direct file, click the Cloud Mirror above.</p>
       </div>
 
       <!-- Tab 2: Install Guide -->
@@ -826,14 +857,27 @@
           </ol>
         </div>
 
-        <a
-          href="./TaskEarn_1.0.apk"
-          download="TaskEarn_1.0.apk"
-          class="trigger-download w-full py-3 rounded-2xl font-bold text-sm text-white bg-indigo-600 hover:bg-indigo-500 transition flex items-center justify-center gap-2"
-        >
-          <i data-lucide="download" class="w-4 h-4"></i>
-          <span>Download Now</span>
-        </a>
+        <div class="space-y-2 pt-1">
+          <a
+            href="./TaskEarn_1.0.apk"
+            download="TaskEarn_1.0.apk"
+            target="_blank"
+            class="w-full py-3 rounded-2xl font-bold text-sm text-white bg-indigo-600 hover:bg-indigo-500 transition flex items-center justify-center gap-2"
+          >
+            <i data-lucide="download" class="w-4 h-4"></i>
+            <span>Download Direct APK (33.9 MB)</span>
+          </a>
+
+          <a
+            href="https://www.mediafire.com/file/qtyd2zkox2dejyz/TaskEarn_1.0.apk/file"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="w-full py-2.5 rounded-2xl font-bold text-xs text-amber-300 bg-amber-500/10 border border-amber-500/30 hover:bg-amber-500/20 transition flex items-center justify-center gap-2"
+          >
+            <i data-lucide="cloud-download" class="w-3.5 h-3.5 text-amber-400"></i>
+            <span>Cloud Mirror Link (MediaFire)</span>
+          </a>
+        </div>
       </div>
 
       <!-- Tab 3: Scan QR -->
@@ -889,10 +933,12 @@
         </button>
       </div>
       <p class="text-[11px] text-slate-300 mt-0.5">Downloading <span class="font-mono text-emerald-300">TaskEarn_1.0.apk</span> (33.9 MB).</p>
-      <div class="mt-2 pt-2 border-t border-slate-800 text-[10px] flex items-center gap-2 text-slate-400">
-        <a href="./TaskEarn_1.0.apk" download="TaskEarn_1.0.apk" class="text-emerald-400 font-bold underline">Download again</a>
+      <div class="mt-2 pt-2 border-t border-slate-800 text-[10px] flex flex-wrap items-center gap-2 text-slate-400">
+        <a href="./TaskEarn_1.0.apk" download="TaskEarn_1.0.apk" target="_blank" class="text-emerald-400 font-bold underline">Direct APK</a>
         <span>•</span>
-        <button onclick="openDownloadModal()" class="text-sky-300 hover:underline">How to install</button>
+        <a href="https://www.mediafire.com/file/qtyd2zkox2dejyz/TaskEarn_1.0.apk/file" target="_blank" rel="noopener noreferrer" class="text-amber-300 font-bold underline">Cloud Mirror</a>
+        <span>•</span>
+        <button onclick="openDownloadModal()" class="text-sky-300 hover:underline">Install Guide</button>
       </div>
     </div>
   </div>
@@ -960,8 +1006,8 @@
       try {
         if (window.confetti) {
           window.confetti({
-            particleCount: 50,
-            spread: 70,
+            particleCount: 60,
+            spread: 80,
             origin: { y: 0.6 },
           });
         }
@@ -969,15 +1015,21 @@
 
       showDownloadToast();
 
-      const isDirectAnchor = e && e.currentTarget && e.currentTarget.tagName === 'A' && e.currentTarget.getAttribute('download');
-      if (!isDirectAnchor) {
-        const link = document.createElement('a');
-        link.href = APP_CONFIG.directDownloadUrl;
-        link.download = APP_CONFIG.apkFileName;
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
-      }
+      // Trigger direct file download
+      const link = document.createElement('a');
+      link.href = APP_CONFIG.directDownloadUrl;
+      link.download = APP_CONFIG.apkFileName;
+      link.target = '_blank';
+      document.body.appendChild(link);
+      link.click();
+      setTimeout(() => {
+        try {
+          document.body.removeChild(link);
+        } catch (err) {}
+      }, 500);
+
+      // Open download modal so user has verified download buttons, direct links & Cloud Mirror
+      openDownloadModal();
     }
 
     function showDownloadToast() {
